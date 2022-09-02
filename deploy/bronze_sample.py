@@ -47,7 +47,6 @@ CREATE TABLE IF NOT EXISTS {table_name} (
 USING DELTA
 PARTITIONED BY (event_date)
 """)
-  sql_list.append(f"TRUNCATE TABLE {table_name}")
 
 for sql_str in sql_list:
   print(sql_str)
