@@ -27,6 +27,9 @@ def getParam(parm):
   return cfg.get(parm)
 
 sql_list = [ f"""
+DROP SCHEMA IF EXISTS {getParam('db_name')} CASCADE
+""",
+f"""
 CREATE SCHEMA IF NOT EXISTS {getParam('db_name')} LOCATION '{getParam('storage_path')}'
 """]
 
@@ -91,4 +94,5 @@ for t in getParam("table_list"):
 # MAGIC select * from solacc_cga.okta_bronze
 
 # COMMAND ----------
+
 
